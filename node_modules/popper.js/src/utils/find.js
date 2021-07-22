@@ -1,18 +1,3 @@
-/**
- * Mimics the `find` method of Array
- * @method
- * @memberof Popper.Utils
- * @argument {Array} arr
- * @argument prop
- * @argument value
- * @returns index or -1
- */
-export default function find(arr, check) {
-  // use native find if supported
-  if (Array.prototype.find) {
-    return arr.find(check);
-  }
-
-  // use `filter` to obtain the same behavior of `find`
-  return arr.filter(check)[0];
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b6aa8e3b8952dd182053988affe2a2288f7eaff750576fb46aa15adf609b0b6c
+size 415

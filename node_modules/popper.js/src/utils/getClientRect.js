@@ -1,14 +1,3 @@
-/**
- * Given element offsets, generate an output similar to getBoundingClientRect
- * @method
- * @memberof Popper.Utils
- * @argument {Object} offsets
- * @returns {Object} ClientRect like output
- */
-export default function getClientRect(offsets) {
-  return {
-    ...offsets,
-    right: offsets.left + offsets.width,
-    bottom: offsets.top + offsets.height,
-  };
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:09856cb2007d4500a126af135b0b6ed6775752a335ce8f4b03288cf9fab0b264
+size 377

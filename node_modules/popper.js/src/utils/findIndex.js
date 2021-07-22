@@ -1,21 +1,3 @@
-import find from './find';
-
-/**
- * Return the index of the matching object
- * @method
- * @memberof Popper.Utils
- * @argument {Array} arr
- * @argument prop
- * @argument value
- * @returns index or -1
- */
-export default function findIndex(arr, prop, value) {
-  // use native findIndex if supported
-  if (Array.prototype.findIndex) {
-    return arr.findIndex(cur => cur[prop] === value);
-  }
-
-  // use `find` + `indexOf` if `findIndex` isn't supported
-  const match = find(arr, obj => obj[prop] === value);
-  return arr.indexOf(match);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5116668a600c711b2995b7c7a0df7a4caa8de752aef615384d3d6209489f7372
+size 555
