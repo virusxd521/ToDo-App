@@ -1,25 +1,105 @@
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 
 
-header{
+body{
+    background-color: rgb(246, 246, 246);
     
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 25vh;
 }
 
+header{
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 27vh;
+}
+
+
+ 
 .div{
-    width: 90%;
+    width: 85%;
+    margin: 0  auto;
 }
 
 h1{
-    font-weight: 900;
-}
-
-img{
-    height: 20px;
-    margin-top: 35px;
-    cursor: pointer;
+    font-weight: 600;
     
 }
 
+.icon{
+    height: 24px;
+    cursor: pointer;
+    margin-top: 53px;
+}
+
+main{
+    width: 85%;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    margin-top: -90px;
+    
+    
+}
+
+#search{
+    border: none;
+    border-radius: 5px;
+    padding: 13px;
+    width: 100%;
+    text-indent: 35px;
+}
+
+#submit{
+    position: absolute;
+    margin-top:15px;
+    margin-left: 10px;
+    border-radius: 50%;
+    padding: 0 12px;
+    background-color: white;
+    border: solid 1px rgb(180, 180, 180);
+}
+
+
+/* li of inserted items */
+
+.all-inserts{
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(110, 110, 110);
+    box-shadow: 5px 5px 15px;
+}
+
+.inserting-elements{
+    width: 150%;
+    margin-left: -25px;
+}
+
+#ul-items{
+    width: 70%;
+   
+}
+
+li{
+    list-style: none;
+    border-bottom: 1px solid rgb(182, 182, 182);
+    padding: 15px;
+}
+
+.filter-buttons{
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    color:rgb(104, 104, 104);
+    font-weight: 600;
+    box-shadow: 1px 1px 1px;
+}
+
+
+/* footer */
+
+.footer{
+    width: 80%;
+    margin-bottom: 0;
+    
+}
+ 
