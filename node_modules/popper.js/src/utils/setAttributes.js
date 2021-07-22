@@ -1,18 +1,3 @@
-/**
- * Set the attributes to the given popper
- * @method
- * @memberof Popper.Utils
- * @argument {Element} element - Element to apply the attributes to
- * @argument {Object} styles
- * Object with a list of properties and values which will be applied to the element
- */
-export default function setAttributes(element, attributes) {
-  Object.keys(attributes).forEach(function(prop) {
-    const value = attributes[prop];
-    if (value !== false) {
-      element.setAttribute(prop, attributes[prop]);
-    } else {
-      element.removeAttribute(prop);
-    }
-  });
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:164969428b044629f070b57fdb36213dc7b8e51034c8c9274cbfd5567725d680
+size 577

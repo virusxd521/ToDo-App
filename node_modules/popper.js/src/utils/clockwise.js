@@ -1,22 +1,3 @@
-import placements from '../methods/placements';
-
-// Get rid of `auto` `auto-start` and `auto-end`
-const validPlacements = placements.slice(3);
-
-/**
- * Given an initial placement, returns all the subsequent placements
- * clockwise (or counter-clockwise).
- *
- * @method
- * @memberof Popper.Utils
- * @argument {String} placement - A valid placement (it accepts variations)
- * @argument {Boolean} counter - Set to true to walk the placements counterclockwise
- * @returns {Array} placements including their variations
- */
-export default function clockwise(placement, counter = false) {
-  const index = validPlacements.indexOf(placement);
-  const arr = validPlacements
-    .slice(index + 1)
-    .concat(validPlacements.slice(0, index));
-  return counter ? arr.reverse() : arr;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:20bab89ea0ebc670adaf0c607fc353982d58a4d8c40442d67cd4d42c3ad0e575
+size 795

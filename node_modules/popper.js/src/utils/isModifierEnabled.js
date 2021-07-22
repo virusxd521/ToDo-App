@@ -1,11 +1,3 @@
-/**
- * Helper used to know if the given modifier is enabled.
- * @method
- * @memberof Popper.Utils
- * @returns {Boolean}
- */
-export default function isModifierEnabled(modifiers, modifierName) {
-  return modifiers.some(
-    ({ name, enabled }) => enabled && name === modifierName
-  );
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5a38987b9b8fd1586c93e56ae0e0a8187141a57d5d287af86b7da8e84a0d75c5
+size 296

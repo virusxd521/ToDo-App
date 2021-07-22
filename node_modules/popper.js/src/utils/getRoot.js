@@ -1,14 +1,3 @@
-/**
- * Finds the root node (document, shadowDOM root) of the given element
- * @method
- * @memberof Popper.Utils
- * @argument {Element} node
- * @returns {Element} root node
- */
-export default function getRoot(node) {
-  if (node.parentNode !== null) {
-    return getRoot(node.parentNode);
-  }
-
-  return node;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0138eaa746db0e7e7537ad63b7e593e4c5f5c25097e7df3ef744c81f189a7592
+size 323

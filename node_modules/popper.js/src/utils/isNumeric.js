@@ -1,10 +1,3 @@
-/**
- * Tells if a given input is a number
- * @method
- * @memberof Popper.Utils
- * @param {*} input to check
- * @return {Boolean}
- */
-export default function isNumeric(n) {
-  return n !== '' && !isNaN(parseFloat(n)) && isFinite(n);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:55ef748aade4e76228a24d1d719585cb17c1408750bc7acc78ea924f45df9e85
+size 243
