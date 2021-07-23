@@ -84,6 +84,9 @@ li{
     list-style: none;
     border-bottom: 1px solid rgb(182, 182, 182);
     padding: 15px;
+    display: flex;
+
+    
 }
 
 .filter-buttons{
@@ -93,6 +96,47 @@ li{
     font-weight: 600;
     box-shadow: 1px 1px 1px;
 }
+
+
+/* all li */
+li:hover{
+    cursor: grab;
+}
+
+/* input inside li */
+
+li input[type="button"]{
+    border: solid 1px rgb(104, 104, 104);
+    border-radius: 50%;
+    padding: 0 12px;
+    background-color: white;
+    
+}
+
+/* span inside li  */
+
+li span{
+    margin-left: 25px;
+}
+
+/* image inside li */
+
+li img{
+    margin-left: auto;
+    height: 15px;
+    align-self: center;
+}
+
+li img:hover{
+    cursor: pointer;
+}
+
+/* Clear copleted button */
+
+#clear-all-button{
+    cursor: pointer;
+}
+
 
 
 /* footer */
