@@ -12,11 +12,35 @@ let itemsCounter = 0;
 const textOfItemLeft = `items left`;
 const inside_ul_style = document.querySelector(".all-inserts");
 const filter_buttons = document.querySelector(".filter-buttons");
+const end_of_ul_buttons = document.querySelector(".controll-buttons");
+const main = document.querySelector("main");
 // Dark / white theme 
 
+console.log(window.screen.width);
 
 
+function changeElementsBasedSize(){
+    if(screen.availWidth >= 1000){
+        end_of_ul_buttons.insertBefore(filter_buttons, clear_all_button);
+        filter_buttons.setAttribute("class", "aaa");
+    } else if(
+        screen.availWidth <= 1000 &&
+        filter_buttons.parentNode.tagName === "DIV"
+    ) {
+        end_of_ul_buttons.removeChild(filter_buttons);
+        main.appendChild(filter_buttons);
+        filter_buttons.classList.remove("aaa");
+        filter_buttons.classList.add("filter-buttons", "mt-4");
+    }
+}
 
+window.addEventListener("DOMContentLoaded", event => {
+    changeElementsBasedSize();
+});
+
+window.addEventListener("resize", event => {
+    changeElementsBasedSize();
+})
 
 function switchToDarkTheme(event){
     event.target.attributes.src.value = "./styles/images/icon-sun.svg";
@@ -38,7 +62,7 @@ function switchToDarkTheme(event){
         }
     }
     inside_ul_style.style.backgroundColor = "hsl(237, 14%, 26%)";
-    filter_buttons.style.backgroundColor = "hsl(237, 14%, 26%)";
+    filter_buttons.style.backgroundColor = "hsl(237, 14%, 26%)";    
 }
 
 function switchToDefaultTheme(event){
@@ -107,11 +131,9 @@ function markAsDone(circleButton, text_span){
     });
 }
 
-
 function itemsLeft_adding(){
         itemsCounter += 1;
         number_of_items.textContent = `${itemsCounter} ${textOfItemLeft}`;
-
 }
 
 function itemsLeft_removing(){
@@ -121,13 +143,7 @@ function itemsLeft_removing(){
         itemsCounter -= 1;
         number_of_items.textContent = `${itemsCounter} ${textOfItemLeft}`;
     }
-
 }
-
-
-
-
-
 
 form.addEventListener("submit", event => {
     event.preventDefault();
@@ -173,7 +189,6 @@ form.addEventListener("submit", event => {
     }   
 });
 
-
 // clear Completed
 clear_all_button.addEventListener("click", event => {
     const elements_arr_remove = [];
@@ -190,10 +205,12 @@ clear_all_button.addEventListener("click", event => {
     }
     for(let i = 0; i < elements_arr_remove.length; i++){
         ul.removeChild(elements_arr_remove[i]);
+        const idx  = allStateObj.completed.arrOfCompleted.indexOf(elements_arr_remove[i]);
+        allStateObj.completed.arrOfCompleted.splice(idx, 1);
+        allStateObj.all.arrOfAll.splice(idx, 1);
+
     }   
 });
-
-
 
 // drag and drop
 ul.addEventListener("dragend", event => {
@@ -225,9 +242,6 @@ function afterPositionDrag(theUlElement, yPosition){
         }
     }, { offset: Number.NEGATIVE_INFINITY}).element;
 }
-
-
-
 
 //  all active Completed filters
 
@@ -278,7 +292,6 @@ let allStateObj = {
         arrOfAll: []
     }     
 }
-
 
 filter_buttons.addEventListener("click", event => {
     const classes_of_element = event.target.textContent.trim();
