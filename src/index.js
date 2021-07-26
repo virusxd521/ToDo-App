@@ -153,7 +153,7 @@ form.addEventListener("submit", event => {
     const input_button = document.createElement("input");
     const span = document.createElement("span");
     const image = document.createElement("img");
-    image.src = "../styles/images/icon-cross.svg";
+    image.src = "./styles/images/icon-cross.svg";
     span.textContent = theInput.value;
     input_button.type = "button";
     li.appendChild(input_button);
