@@ -46,17 +46,17 @@ main{
     border-radius: 5px;
     padding: 13px;
     width: 100%;
-    text-indent: 35px;
+    text-indent: 60px;
 }
 
 #submit{
     position: absolute;
     margin-top:15px;
-    margin-left: 10px;
+    margin-left: 21px;
     border-radius: 50%;
     padding: 0 12px;
     background-color: white;
-    border: solid 1px rgb(180, 180, 180);
+    border: solid 1px rgb(104, 104, 104);
 }
 
 
@@ -67,17 +67,22 @@ main{
     border-radius: 5px;
     background-color: white;
     color: rgb(110, 110, 110);
-    box-shadow: 5px 5px 15px;
+    box-shadow: 2px -2px 17px hsl(237, 14%, 26%);
+    z-index: 2;
 }
 
 .inserting-elements{
-    width: 150%;
+    
     margin-left: -25px;
 }
 
 #ul-items{
-    width: 70%;
+    width: 100%;
    
+}
+
+.dragging{
+    opacity: .5;
 }
 
 li{
@@ -85,8 +90,7 @@ li{
     border-bottom: 1px solid rgb(182, 182, 182);
     padding: 15px;
     display: flex;
-
-    
+    width: 99%;    
 }
 
 .filter-buttons{
@@ -95,6 +99,7 @@ li{
     color:rgb(104, 104, 104);
     font-weight: 600;
     box-shadow: 1px 1px 1px;
+    cursor: pointer;
 }
 
 
@@ -112,6 +117,14 @@ li input[type="button"]{
     background-color: white;
     
 }
+
+.gradient-click{
+    background-image: url('../styles/images/icon-check.svg'), linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
 
 /* span inside li  */
 
