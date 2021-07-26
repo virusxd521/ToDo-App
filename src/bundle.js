@@ -7114,7 +7114,9 @@ form.addEventListener("submit", event => {
             allStateObj.active.arrOfActive.push(ul_children[i]);
             allStateObj.all.arrOfAll.push(ul_children[i]);
         }
-    }   
+    }
+    
+    theInput.value = "";
 });
 
 // clear Completed
