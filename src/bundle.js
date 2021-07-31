@@ -7129,17 +7129,30 @@ clear_all_button.addEventListener("click", event => {
             if(inner_span_element.tagName === "SPAN" &&
                inner_span_element.style.textDecoration === "line-through"
             ){
-                elements_arr_remove.push(ul_children[i]);  
+                
+                elements_arr_remove.push(ul_children[i]);
+                
             }
         }
     }
     for(let i = 0; i < elements_arr_remove.length; i++){
         ul.removeChild(elements_arr_remove[i]);
-        const idx  = allStateObj.completed.arrOfCompleted.indexOf(elements_arr_remove[i]);
-        allStateObj.completed.arrOfCompleted.splice(idx, 1);
-        allStateObj.all.arrOfAll.splice(idx, 1);
+        if( allStateObj.completed.arrOfCompleted.includes(elements_arr_remove[i])){
+            const idx = allStateObj.completed.arrOfCompleted.indexOf(elements_arr_remove[i]);
+            allStateObj.completed.arrOfCompleted.splice(idx, 1);
+        }
 
-    }   
+        if( allStateObj.all.arrOfAll.includes(elements_arr_remove[i])){
+            const idx = allStateObj.all.arrOfAll.indexOf(elements_arr_remove[i])
+            allStateObj.all.arrOfAll.splice(idx, 1);
+        }
+        
+        console.log(allStateObj);
+        
+    } 
+    
+    
+
 });
 
 // drag and drop
@@ -7176,7 +7189,7 @@ function afterPositionDrag(theUlElement, yPosition){
 //  all active Completed filters
 
 function allItemsShow(event, list){
-    event.target.style.color = "navy";
+    
     for(let i = 0; i < list.all.arrOfAll.length; i++){
         ul.appendChild(list.all.arrOfAll[i]);
         
@@ -7184,7 +7197,7 @@ function allItemsShow(event, list){
 }
 
 function activeItems(event, list){
-    event.target.style.color = "navy";
+
     for(let i = 0; i < list.active.arrOfActive.length; i++){
         ul.appendChild(list.active.arrOfActive[i]);
     }
@@ -7198,7 +7211,7 @@ function activeItems(event, list){
 }
 
 function completedItems(event, list){
-    event.target.style.color = "navy";
+
     for(let i = 0; i < list.completed.arrOfCompleted.length; i++){
         ul.appendChild(list.completed.arrOfCompleted[i]);    
     }  
