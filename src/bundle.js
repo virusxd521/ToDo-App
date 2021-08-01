@@ -6944,7 +6944,7 @@ const end_of_ul_buttons = document.querySelector(".controll-buttons");
 const main = document.querySelector("main");
 // Dark / white theme 
 
-console.log(window.screen.width);
+
 
 
 function changeElementsBasedSize(){
@@ -6979,10 +6979,8 @@ function switchToDarkTheme(event){
         form.children[i].style.color = "white";
     }
     for(let i = 0; i < ul_children.length; i++){                
-        console.log(ul_children[i]);
         for(let j = 0; j < ul_children[i].children.length; j++){
             if(ul_children[i].children[j].tagName === "INPUT"){
-                console.log(ul_children[i].children[j]);
                 ul_children[i].children[j].style.backgroundColor = "hsl(237, 14%, 26%)";
             } else if(ul_children[i].children[j].tagName === "SPAN"){
                 ul_children[i].children[j].style.color = "white";
@@ -7004,10 +7002,8 @@ function switchToDefaultTheme(event){
     }
 
     for(let i = 0; i < ul_children.length; i++){                
-        console.log(ul_children[i]);
         for(let j = 0; j < ul_children[i].children.length; j++){
             if(ul_children[i].children[j].tagName === "INPUT"){
-                console.log(ul_children[i].children[j]);
                 ul_children[i].children[j].style.backgroundColor = "white";
             } else if(ul_children[i].children[j].tagName === "SPAN"){
                 ul_children[i].children[j].style.color = "rgb(110, 110, 110)";
@@ -7036,7 +7032,7 @@ header_div.addEventListener("click", event => {
 function markAsDone(circleButton, text_span){
 
     circleButton.addEventListener("click", event => {
-        if(event.target.checked === false){
+        if(event.target.checked === false && text_span.style.textDecoration !== "line-through"){
             event.target.setAttribute("class", "gradient-click");
             text_span.style.textDecoration = "line-through";
             allStateObj.completed.arrOfCompleted.push(circleButton.parentNode);
@@ -7100,7 +7096,20 @@ form.addEventListener("submit", event => {
     // Removing items by clicking the x button and updating the counter
     image.addEventListener("click", event => {
         ul.removeChild(li);
-        itemsLeft_removing();
+        const list_span = li.children[1].style.textDecoration;
+        if(list_span !== "line-through"){
+            itemsLeft_removing();
+            const active_idx = allStateObj.active.arrOfActive.indexOf(li);
+            allStateObj.active.arrOfActive.splice(active_idx, 1);
+            const idx = allStateObj.all.arrOfAll.indexOf(li);
+            allStateObj.all.arrOfAll.splice(idx, 1);
+        } else {
+            const idx = allStateObj.all.arrOfAll.indexOf(li);
+            allStateObj.all.arrOfAll.splice(idx, 1);
+            const completed_idx = allStateObj.completed.arrOfCompleted.indexOf(li);
+            allStateObj.completed.arrOfCompleted.splice(completed_idx, 1);
+        }
+
     });
 
     for(let i = 0; i < ul_children.length; i++){
@@ -7147,7 +7156,7 @@ clear_all_button.addEventListener("click", event => {
             allStateObj.all.arrOfAll.splice(idx, 1);
         }
         
-        console.log(allStateObj);
+   
         
     } 
     
@@ -7211,13 +7220,12 @@ function activeItems(event, list){
 }
 
 function completedItems(event, list){
-
-    for(let i = 0; i < list.completed.arrOfCompleted.length; i++){
-        ul.appendChild(list.completed.arrOfCompleted[i]);    
-    }  
-
+    
     for(let i = 0; i < list.active.arrOfActive.length; i++){
-        ul.removeChild(list.active.arrOfActive[i]);  
+        if(list.active.arrOfActive[i].parentNode !== null){
+            ul.removeChild(list.active.arrOfActive[i]);  
+        }
+        
     }
 }
 
